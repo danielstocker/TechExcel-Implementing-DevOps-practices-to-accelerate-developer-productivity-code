@@ -78,7 +78,7 @@ jobs:
     needs: dockerBuildPush
     environment:
       name: dev
-      url: https://{your_prefix}-dev.azurewebsites.net/
+      url: https://dan002-dev.azurewebsites.net/
     
     steps:
       - name: 'Login via Azure CLI'
@@ -88,8 +88,8 @@ jobs:
 
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: '{your_prefix}-dev'
-          images: {your_registry_name}.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
+          app-name: 'dan002-dev'
+          images: acrtest445.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-test:
   
@@ -97,7 +97,7 @@ jobs:
     needs: deploy-to-dev
     environment:
       name: test
-      url: https://{your_prefix}-test.azurewebsites.net/
+      url: https://dan002-test.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v3
@@ -109,8 +109,8 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: '{your_prefix}-test'
-        images: {your_registry_name}.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
+        app-name: 'dan002-test'
+        images: acrtest445.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-prod:
   
@@ -118,7 +118,7 @@ jobs:
     needs: deploy-to-test
     environment:
       name: prod
-      url: https://{your_prefix}-prod.azurewebsites.net/
+      url: https://dan002-prod.azurewebsites.net/
     
     steps:
     - uses: actions/checkout@v3
@@ -130,5 +130,5 @@ jobs:
 
     - uses: azure/webapps-deploy@v2
       with:
-        app-name: '{your_prefix}-prod'
-        images: {your_registry_name}.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
+        app-name: 'dan002-prod'
+        images: acrtest445.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
