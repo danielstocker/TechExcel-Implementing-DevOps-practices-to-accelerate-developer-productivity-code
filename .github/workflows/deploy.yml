@@ -1,7 +1,7 @@
 name: .NET CI
 
 env:
-  registryName: acrtest445.azurecr.io
+  registryName: hybfj64ssk5ocmpnpreg.azurecr.io
   repositoryName: techboost/dotnetcoreapp
   dockerFolderPath: ./Application/src/RazorPagesTestSample
   tag: ${{github.run_number}}
