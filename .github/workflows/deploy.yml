@@ -89,7 +89,7 @@ jobs:
       - uses: azure/webapps-deploy@v2
         with:
           app-name: 'hybfj64ssk5oc-dev'
-          images: acrtest445.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
+          images: ${{ secrets.ACR_LOGIN_SERVER }}/techboost/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-test:
   
@@ -110,7 +110,7 @@ jobs:
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'hybfj64ssk5oc-test'
-        images: acrtest445.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
+        images: ${{ secrets.ACR_LOGIN_SERVER }}/techboost/dotnetcoreapp:${{github.run_number}}
 
   deploy-to-prod:
   
@@ -131,4 +131,4 @@ jobs:
     - uses: azure/webapps-deploy@v2
       with:
         app-name: 'hybfj64ssk5oc-prod'
-        images: acrtest445.azurecr.io/techboost/dotnetcoreapp:${{github.run_number}}
+        images: ${{ secrets.ACR_LOGIN_SERVER }}/techboost/dotnetcoreapp:${{github.run_number}}
